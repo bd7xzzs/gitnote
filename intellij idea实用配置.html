@@ -1,0 +1,124 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <!-- common.css -->
+      <style>* {-webkit-tap-highlight-color: rgba(0,0,0,0);}html {-webkit-text-size-adjust: none;}body {font-family: -apple-system, Helvetica, Arial, sans-serif;margin: 0;padding: 20px;color: #333;word-wrap: break-word;}h1, h2, h3, h4, h5, h6 {line-height: 1.1;}img {max-width: 100% !important;height: auto;}blockquote {margin: 0;padding: 0 15px;color: #777;border-left: 4px solid #ddd;}hr {background-color: #ddd;border: 0;height: 1px;margin: 15px 0;}code {font-family: Menlo, Consolas, 'Ubuntu Mono', Monaco, 'source-code-pro', monospace;line-height: 1.4;margin: 0;padding: 0.2em 0;font-size: 90%;background-color: rgba(0,0,0,0.04);border-radius: 3px;}pre > code {margin: 0;padding: 0;font-size: 100%;word-break: normal;background: transparent;border: 0;}ol {list-style-type: decimal;}ol ol, ul ol {list-style-type: lower-latin;}ol ol ol, ul ol ol, ul ul ol, ol ul ol {list-style-type: lower-roman;}table {border-spacing: 0;border-collapse: collapse;margin-top: 0;margin-bottom: 16px;}table th {font-weight: bold;}table th, table td {padding: 6px 13px;border: 1px solid #ddd;}table tr {border-top: 1px solid #ccc;}table tr:nth-child(even) {background-color: #f8f8f8;}input[type="checkbox"] {cursor: default;margin-right: 0.5em;font-size: 13px;}.task-list-item {list-style-type: none;}.task-list-item+.task-list-item {margin-top: 3px;}.task-list-item input {float: left;margin: 0.3em 1em 0.25em -1.6em;vertical-align: middle;}#tag-field {margin: 8px 2px 10px;}#tag-field .tag {display: inline-block;background: #cadff3;border-radius: 4px;padding: 1px 8px;color: black;font-size: 12px;margin-right: 10px;line-height: 1.4;}</style>
+      <!-- ace-static.css -->
+      <style>.ace_static_highlight {white-space: pre-wrap;}.ace_static_highlight .ace_gutter {width: 2em;text-align: right;padding: 0 3px 0 0;margin-right: 3px;}.ace_static_highlight.ace_show_gutter > .ace_line {padding-left: 2.6em;}.ace_static_highlight .ace_line {position: relative;}.ace_static_highlight .ace_gutter-cell {-moz-user-select: -moz-none;-khtml-user-select: none;-webkit-user-select: none;user-select: none;top: 0;bottom: 0;left: 0;position: absolute;}.ace_static_highlight .ace_gutter-cell:before {content: counter(ace_line, decimal);counter-increment: ace_line;}.ace_static_highlight {counter-reset: ace_line;}</style>
+      <style>.ace-monokai .ace_gutter {background: #2F3129;color: #8F908A}.ace-monokai .ace_print-margin {width: 1px;background: #555651}.ace-monokai {background-color: #272822;color: #F8F8F2}.ace-monokai .ace_cursor {color: #F8F8F0}.ace-monokai .ace_marker-layer .ace_selection {background: #49483E}.ace-monokai.ace_multiselect .ace_selection.ace_start {box-shadow: 0 0 3px 0px #272822;}.ace-monokai .ace_marker-layer .ace_step {background: rgb(102, 82, 0)}.ace-monokai .ace_marker-layer .ace_bracket {margin: -1px 0 0 -1px;border: 1px solid #49483E}.ace-monokai .ace_marker-layer .ace_active-line {background: #202020}.ace-monokai .ace_gutter-active-line {background-color: #272727}.ace-monokai .ace_marker-layer .ace_selected-word {border: 1px solid #49483E}.ace-monokai .ace_invisible {color: #52524d}.ace-monokai .ace_entity.ace_name.ace_tag,.ace-monokai .ace_keyword,.ace-monokai .ace_meta.ace_tag,.ace-monokai .ace_storage {color: #F92672}.ace-monokai .ace_punctuation,.ace-monokai .ace_punctuation.ace_tag {color: #fff}.ace-monokai .ace_constant.ace_character,.ace-monokai .ace_constant.ace_language,.ace-monokai .ace_constant.ace_numeric,.ace-monokai .ace_constant.ace_other {color: #AE81FF}.ace-monokai .ace_invalid {color: #F8F8F0;background-color: #F92672}.ace-monokai .ace_invalid.ace_deprecated {color: #F8F8F0;background-color: #AE81FF}.ace-monokai .ace_support.ace_constant,.ace-monokai .ace_support.ace_function {color: #66D9EF}.ace-monokai .ace_fold {background-color: #A6E22E;border-color: #F8F8F2}.ace-monokai .ace_storage.ace_type,.ace-monokai .ace_support.ace_class,.ace-monokai .ace_support.ace_type {font-style: italic;color: #66D9EF}.ace-monokai .ace_entity.ace_name.ace_function,.ace-monokai .ace_entity.ace_other,.ace-monokai .ace_entity.ace_other.ace_attribute-name,.ace-monokai .ace_variable {color: #A6E22E}.ace-monokai .ace_variable.ace_parameter {font-style: italic;color: #FD971F}.ace-monokai .ace_string {color: #E6DB74}.ace-monokai .ace_comment {color: #75715E}.ace-monokai .ace_indent-guide {background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAAEklEQVQImWPQ0FD0ZXBzd/wPAAjVAoxeSgNeAAAAAElFTkSuQmCC) right repeat-y}</style>
+      <!-- export.css -->
+      <style>
+        body{margin:0 auto;max-width:800px;line-height:1.4}
+        #nav{margin:5px 0 10px;font-size:15px}
+        #titlearea{border-bottom:1px solid #ccc;font-size:17px;padding:10px 0;}
+        #contentarea{font-size:15px;margin:16px 0}
+        .cell{outline:0;min-height:20px;margin:5px 0;padding:5px 0;}
+        .code-cell{font-family:Menlo,Consolas,'Ubuntu Mono',Monaco,'source-code-pro',monospace;font-size:12px;}
+        .latex-cell{white-space:pre-wrap;}
+      </style>
+      <!-- User CSS -->
+      <style> a{text-decoration:none}.text-cell {font-size: 15px;}.code-cell {font-size: 12px;}.markdown-cell {font-size: 15px;}.latex-cell {font-size: 15px;}</style>
+    </head>
+    <body>
+      <div id="nav"><div>Up: <a href='index.html'>Index</a></div></div>
+      <div id="titlearea">
+        <h2>intellij idea实用配置</h2>
+      </div>
+      <div id="contentarea"><div class="cell markdown-cell"><p>本文记录了个人日常实用intellij idea编译器的配置。这些配置基本可以在所有idea版本中使用。</p>
+<p><strong><em>本文中的注册码与破解来源于网络，有钱的请直接支持正版</em></strong> 【<a href="https://www.jetbrains.com/idea/buy/#commercial?billing=yearly">购买地址</a>】</p>
+<p>最终效果：<br>
+<img src="https://gitcdn.link/cdn/bd7xzzs/gitnote-pic/master//img/20200215125043.png" alt="" width="800" height="600"></p>
+<h3>下载与安装</h3>
+<p>官网下载：</p>
+<ul>
+<li>Mac版：【<a href="https://www.jetbrains.com/idea/download/#section=mac">点击下载</a>】</li>
+<li>Linux版：【<a href="https://www.jetbrains.com/idea/download/#section=linux">点击下载</a>】</li>
+</ul>
+<p><img src="https://gitcdn.link/cdn/bd7xzzs/gitnote-pic/master//img/20200215180316.png" alt="" width="800" height="600"><br>
+选择Ultimate下的Download<br>
+<em>注意</em>：</p>
+<ul>
+<li>Ultimate：包含了idea所有功能，是付费的。</li>
+<li>Community：为社区版，支持的功能较少。</li>
+</ul>
+<p>在安装idea之前机器内需要安装jdk，推荐jdk1.8，Linux安装完成后需要配置环境变量。</p>
+<ul>
+<li>Mac版：【<a href="https://app.blackhole.run/#o7MmXTChjT1MgZC6ihaeJKtpieb14p6hq9Nmzu4Groy1">点击下载</a>】</li>
+<li>Linux版：【<a href="https://app.blackhole.run/#f3ETeWeeXA1GKcC9LQongu2iLheLGUazjwrzPPtjvH81">点击下载</a>】</li>
+</ul>
+<h3>注册码与破解</h3>
+<p>下载安装idea Ultimate完成后，需要进行破解。两种方式：</p>
+<ul>
+<li>破解文件：【<a href="https://app.blackhole.run/#gFgko2a57A17G2xJsuhkrFsU3dEqAUitfQwzVgHXyom7">点击下载</a>】<br>
+Mac、Linux、Windows破解方法是一致的，将破解文件jetbrains-agent.jar放到idea跟目录的bin目录中，修改bin下idea.vmoptions配置文件，最后增加一行：<br>
+<code>-javaagent:./jetbrains-agent.jar</code><br>
+<img src="https://gitcdn.link/cdn/bd7xzzs/gitnote-pic/master//img/20200215191231.png" alt="" width="800" height="600"></li>
+<li>激活码：<br>
+激活码可以直接在网址: <a href="http://lookdiv.com">http://lookdiv.com</a> 密钥: <a href="http://lookdiv.com">lookdiv.com</a> 获取。<br>
+<img src="https://gitcdn.link/cdn/bd7xzzs/gitnote-pic/master//img/20200216212141.png" alt="" width="800" height="600"><br>
+同时修改host映射，屏蔽idea的注册码校验。<code>sudo vi /etc/hosts</code><br>
+0.0.0.0 <a href="https://account.jetbrains.com:443">https://account.jetbrains.com:443</a><br>
+1.2.3.4 <a href="http://account.jetbrains.com">account.jetbrains.com</a><br>
+1.2.3.4 <a href="http://www.jetbrains.com">http://www.jetbrains.com</a><br>
+1.2.3.4 <a href="http://www-weighted.jetbrains.com">www-weighted.jetbrains.com</a><br>
+0.0.0.0 <a href="http://account.jetbrains.com">account.jetbrains.com</a></li>
+</ul>
+<h3>JVM优化</h3>
+<p>我们可以修改idea的jvm参数配置，提升idea整体性能。编辑idea.vmoptions，配置如下参数：<br>
+-server #server模式<br>
+-Xms2048m #最小堆空间<br>
+-Xmx2048m #最大堆空间<br>
+-Xverify:none #禁用字节码校验<br>
+-XX:+DisableExplicitGC #禁用System.gc()调用<br>
+-XX:MetaspaceSize=1024m #meta空间大小<br>
+-XX:ReservedCodeCacheSize=512m #代码缓存大小<br>
+-XX:+UseG1GC #使用g1 gc</p>
+<p><img src="https://gitcdn.link/cdn/bd7xzzs/gitnote-pic/master//img/20200216215412.png" alt="" width="800" height="600"></p>
+<h3>插件</h3>
+<p>可以安装的实用插件：</p>
+<ul>
+<li>.ignore：可添加各种ignore文件</li>
+<li>AceJump：编辑器光标跳转插件</li>
+<li>Background Image Plus+：编辑器背景插件</li>
+<li>CamelCase：驼峰命名法转换</li>
+<li>FindBug-IDEA：静态代码分析</li>
+<li>Free Mybatis plugin：Mybatis插件</li>
+<li>GenerateSerialVersionUID：生成序列化id</li>
+<li>Grep Console：控制台输出配置</li>
+<li>IdeaVim：编辑器vim插件</li>
+<li>JProfiler：性能分析插件，但要调用外部的JProfiler</li>
+<li>Lombok：lombok提升编码效率</li>
+<li>Meterial Theme UI：编辑器主题</li>
+<li>Maven Helper：Maven工具</li>
+<li>Mybatis Log Plugin：Mybatis日志输出</li>
+<li>Rainbow Brackets：代码括号标色</li>
+</ul>
+<p>禁用git，idea的git虽然是图像界面的，但该插件会自己在磁盘维护一个索引，在编码时会一直更新磁盘索引，如果是机械磁盘会感到很卡。推荐使用命令行提交代码。</p>
+<h3>编译器配置</h3>
+<ul>
+<li>禁用鼠标悬停显示：File-&gt;Settings-&gt;Editor-&gt;General 去掉 show quick doc on mouse move<br>
+<img src="https://gitcdn.link/cdn/bd7xzzs/gitnote-pic/master//img/20200216220608.png" alt="" width="800" height="600"></li>
+<li>显示方法分隔符：File-&gt;Settings-&gt;Editor-&gt;General-&gt;Appearance<br>
+<img src="https://gitcdn.link/cdn/bd7xzzs/gitnote-pic/master//img/20200216220801.png" alt="" width="800" height="600"></li>
+<li>忽略大小写提示：File-&gt;Settings-&gt;Editor-&gt;General-&gt;Code Completion<br>
+<img src="https://gitcdn.link/cdn/bd7xzzs/gitnote-pic/master//img/20200216221044.png" alt="" width="800" height="600"></li>
+<li>自动导包：File-&gt;Settings-&gt;Editor-&gt;general-&gt;Auto Import<br>
+<img src="https://gitcdn.link/cdn/bd7xzzs/gitnote-pic/master//img/20200216221216.png" alt="" width="800" height="600"></li>
+<li>取消单行显示Tabs：File-&gt;Settings-&gt;Editor-&gt;General -&gt;Editor Tabs<br>
+<img src="https://gitcdn.link/cdn/bd7xzzs/gitnote-pic/master//img/20200216221531.png" alt="" width="800" height="600"></li>
+<li>设置文件编码：File-&gt;Settings-&gt;Editor-&gt;File Encodings<br>
+<img src="https://gitcdn.link/cdn/bd7xzzs/gitnote-pic/master//img/20200216221710.png" alt="" width="800" height="600"></li>
+<li>禁用代码实时监测：File-&gt;Settings-&gt;Editor-&gt;Inpscetions<br>
+<img src="https://gitcdn.link/cdn/bd7xzzs/gitnote-pic/master//img/20200216221835.png" alt="" width="800" height="600"></li>
+<li>Maven编译线程配置：File-&gt;Settings-&gt;Build,Execution,Deployment-&gt;Build Tools-&gt;Maven<br>
+<img src="https://gitcdn.link/cdn/bd7xzzs/gitnote-pic/master//img/20200216222308.png" alt="" width="800" height="600"></li>
+</ul>
+</div></div>
+      <script>document.body.onkeyup = function(e) {
+}</script>
+    </body>
+    </html>
+  
